@@ -16,7 +16,7 @@ using namespace std;
 
 struct node
 {
-    node **arr = new node *[2];
+    node **arr = new node *[2]{};
     bool is = false;
     ~node() { delete[] arr; }
 };
