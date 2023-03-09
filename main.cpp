@@ -79,6 +79,25 @@ public:
         }
         return curr->is;
     }
+    int max_xor(int a, numTrie *tree)
+    {
+    int ans = 0;
+    node *curr = tree->root;
+    for (int i = LOG-1; i >= 0; i--)
+    {
+        int bit = (a >> i) & 1;
+
+        if (curr->arr[1 ^ bit])
+        {
+            ans += (1 << i);
+            curr = curr->arr[1 ^ bit];
+        }
+        else
+            curr = curr->arr[bit];
+    }
+    return ans;
+}
+
 };
 
 int main()
